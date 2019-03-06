@@ -14,11 +14,17 @@ import (
 
 func main() {
 	var s, sep string
+	var num int
+	num = 0
 	for i := 1; i < len(os.Args); i++ {
 		s += sep + os.Args[i]
 		sep = " "
+		num += 1
 	}
 	fmt.Println(s)
+	fmt.Println("The first argument: " + os.Args[1])
+	fmt.Println("the number of command line arguments is: " + string(num))
+	fmt.Println(num)
 }
 
 //!-
