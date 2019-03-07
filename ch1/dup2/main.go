@@ -15,6 +15,23 @@ import (
 )
 
 func main() {
+        counts := make(map[string]int)
+	file, err := os.Open(os.Args[1])
+	fmt.Print("error: ")
+	fmt.Println(err)
+
+
+	countLines(file, counts)
+	fmt.Println(counts)
+
+	for k,v := range counts {
+	    fmt.Print(k)
+	    fmt.Print(" ")
+	    fmt.Println(v)
+	}
+}
+
+func dmain() {
 	counts := make(map[string]int)
 	files := os.Args[1:]
 	if len(files) == 0 {
