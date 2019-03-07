@@ -16,19 +16,29 @@ import (
 
 func main() {
         counts := make(map[string]int)
-	file, err := os.Open(os.Args[1])
-	fmt.Print("error: ")
-	fmt.Println(err)
 
+	for _,f := range os.Args[1:] {
+		file, err := os.Open(f)
 
-	countLines(file, counts)
-	fmt.Println(counts)
+		if err != nil {
+		   fmt.Println("dang cousin, it broke")
+		   fmt.Println(err)
+		   fmt.Printf("dup2: %v\n",err)
+		   fmt.Fprintf(os.Stderr, "dup2: %v\n", err)
+		   continue
+	   	}
 
-	for k,v := range counts {
-	    fmt.Print(k)
-	    fmt.Print(" ")
-	    fmt.Println(v)
-	}
+		countLines(file, counts)
+		fmt.Println(counts)
+
+		for k,v := range counts {
+		    if v > 1 {
+           	    	    fmt.Print(k)
+	    		    fmt.Print(" ")
+	    	    	    fmt.Println(v)
+	    	    }
+        	}
+	}		
 }
 
 func dmain() {

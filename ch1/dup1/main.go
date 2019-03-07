@@ -29,3 +29,9 @@ func main() {
 }
 
 //!-
+the week
+the week
+the day
+was
+red
+the week

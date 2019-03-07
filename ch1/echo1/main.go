@@ -22,7 +22,8 @@ func main() {
 		num += 1
 	}
 	fmt.Println(s)
-	fmt.Println("The first argument: " + os.Args[1])
+	fmt.Print("The first argument: ")
+	fmt.Println(os.Args[1:]) 
 	fmt.Println("the number of command line arguments is: " + string(num))
 	fmt.Println(num)
 }
