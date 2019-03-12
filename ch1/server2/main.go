@@ -25,17 +25,21 @@ func main() {
 
 // handler echoes the Path component of the requested URL.
 func handler(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("begin root handler")
 	mu.Lock()
 	count++
 	mu.Unlock()
 	fmt.Fprintf(w, "URL.Path = %q\n", r.URL.Path)
+	fmt.Println("end root handler")
 }
 
 // counter echoes the number of calls so far.
 func counter(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("begin /count handler")
 	mu.Lock()
 	fmt.Fprintf(w, "Count %d\n", count)
 	mu.Unlock()
+	fmt.Println("end /count handler")
 }
 
 //!-
