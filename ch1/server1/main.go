@@ -21,6 +21,10 @@ func main() {
 // handler echoes the Path component of the requested URL.
 func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "URL.Path = %q\n", r.URL.Path)
+	fmt.Fprintf(w, "another print to w")
+	//The following line fails
+	//fmt.Fprintf("just a regular print")
+	//your handler function needs to print to w. This is then sent as the response.
 }
 
 //!-
